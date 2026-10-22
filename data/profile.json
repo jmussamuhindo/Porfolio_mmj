@@ -1,0 +1,18 @@
+{
+  "name": "Mussa Justin Muhindo",
+  "title": "Doctoral Researcher in AI & Applied Mathematics",
+  "tagline": "I build continuous-time machine-learning models for epidemiology — currently forecasting malaria in Rwanda with Neural Controlled Differential Equations and optimal control.",
+  "bio": "I'm a doctoral candidate at the Doctoral School of Exact and Natural Sciences, University of Łódź, working on malaria incidence forecasting in Rwanda with Neural Controlled Differential Equations coupled to optimal control theory, supervised by Prof. dr hab. Andrzej Nowakowski. My interests are continuous-time deep learning for irregularly sampled epidemiological data, mechanistic–data-driven hybrid models, optimal control of infectious-disease interventions, and decision-support tools for national malaria programmes. I combine a computer-science background (MSc, first class) with seven years of professional experience in IT systems, process analytics and teaching, including three years in Rwanda's education sector.",
+  "location": "Łódź, Poland",
+  "email": "mussa.justin@edu.uni.lodz.pl",
+  "availability": "Open to research collaboration",
+  "social": {
+    "github": "https://github.com/jmussamuhindo",
+    "linkedin": "https://linkedin.com/in/justin-muhindo-mussa"
+  },
+  "stats": [
+    { "value": "7+", "label": "Years in IT & analytics" },
+    { "value": "30", "label": "Districts modelled" },
+    { "value": "5", "label": "Languages spoken" }
+  ]
+}

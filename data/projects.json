@@ -1,0 +1,91 @@
+[
+  {
+    "slug": "malaria-neural-cde",
+    "title": "Forecasting Malaria Incidence in Rwanda with Neural CDEs",
+    "summary": "Doctoral research: continuous-time deep learning for irregularly sampled malaria data, integrated with optimal control tools for intervention planning.",
+    "description": "My PhD project at the University of Łódź (2025–2029), supervised by Prof. dr hab. Andrzej Nowakowski with Dr hab. D. Machowska as secondary supervisor. The goal is a forecaster that handles the irregular sampling of real epidemiological data and can be coupled to optimal control to recommend intervention schedules for national malaria programmes. A Neural Controlled Differential Equation forecaster is currently under development on top of an established benchmark.",
+    "highlights": [
+      "Rolling-origin forecasting benchmark (naive, ETS, AR, pooled ridge) as the baseline for the Neural CDE forecaster",
+      "Data access granted by the DHS Program (Rwanda DHS 2014–15, 2019–20; MIS 2013, 2017, 2023)",
+      "Surveillance data request in progress with the Rwanda Biomedical Centre",
+      "Presented at the XXXI National Conference on Applications of Mathematics in Biology and Medicine, Kościelisko, Sept 2026"
+    ],
+    "tags": ["PyTorch", "Neural CDE", "Time series", "Epidemiology"],
+    "year": 2026,
+    "featured": true,
+    "repo": null,
+    "demo": null,
+    "accent": "#7c9cff"
+  },
+  {
+    "slug": "seirs-sei-optimal-control",
+    "title": "SEIRS–SEI Transmission Model with Optimal Control",
+    "summary": "A calibrated human–mosquito malaria transmission model with ITN, IRS and treatment controls, solved for optimal intervention schedules.",
+    "description": "Implemented and calibrated a compartmental SEIRS–SEI human–mosquito transmission model for Rwanda with three intervention controls: insecticide-treated nets (ITN), indoor residual spraying (IRS) and treatment. The model reaches a national fit error of 4.2 %. Optimal intervention schedules are derived by direct transcription of the optimal control problem.",
+    "highlights": [
+      "National fit error of 4.2 %",
+      "Three intervention controls: ITN, IRS and treatment",
+      "Optimal schedules via direct transcription",
+      "Mechanistic baseline for the hybrid Neural CDE approach"
+    ],
+    "tags": ["Python", "SciPy", "ODE models", "Optimal control"],
+    "year": 2026,
+    "featured": true,
+    "repo": null,
+    "demo": null,
+    "accent": "#5fd4c0"
+  },
+  {
+    "slug": "rwanda-malaria-dataset",
+    "title": "Rwanda Malaria Analysis Dataset (2000–2022)",
+    "summary": "A reproducible Python pipeline building a 30-district, 23-year dataset from Malaria Atlas Project surfaces, DHS/MIS surveys and public climate data.",
+    "description": "The data foundation of the doctoral project. Combines Malaria Atlas Project raster surfaces, survey-weighted DHS and MIS indicators, and public climate data into a district-level panel covering all 30 Rwandan districts from 2000 to 2022. Everything is rebuilt from source by a reproducible pipeline under version control.",
+    "highlights": [
+      "30 districts × 23 years of malaria incidence",
+      "Raster and vector processing in R (malariaAtlas, sf, terra) and Python",
+      "Survey-weighted analysis of DHS/MIS data",
+      "Fully reproducible, Git-tracked pipeline"
+    ],
+    "tags": ["Python", "R", "pandas", "Geospatial"],
+    "year": 2025,
+    "featured": true,
+    "repo": null,
+    "demo": null,
+    "accent": "#ffb86b"
+  },
+  {
+    "slug": "legal-connect-system",
+    "title": "Legal Connect System Management",
+    "summary": "MSc thesis project (first class): a system for managing legal services and client–lawyer connections.",
+    "description": "Master's thesis at the Faculty of Mathematics and Computer Science, University of Łódź, completed with a first-class MSc in Computer Science. The project covered the design and implementation of a management system connecting clients with legal services.",
+    "highlights": [
+      "MSc in Computer Science, First Class (2024)",
+      "Full system design and implementation",
+      "Completed alongside software-development workshops and professional-certification study groups"
+    ],
+    "tags": ["Software engineering", "SQL", "System design"],
+    "year": 2024,
+    "featured": false,
+    "repo": null,
+    "demo": null,
+    "accent": "#b48cff"
+  },
+  {
+    "slug": "order-to-cash-analytics",
+    "title": "Order-to-Cash Analytics & Reporting",
+    "summary": "Credit and cash-collection analytics for a multinational client at Infosys BPM: dashboards, automation and process-improvement analysis on large financial datasets.",
+    "description": "As Process Specialist (and previously Senior Process Executive) at Infosys BPM Poland, I lead credit and cash-collection analytics for a multinational client. The work includes building reporting dashboards, automating recurring reports and producing process-improvement analyses over large financial datasets in Order-to-Cash and Procure-to-Pay processes.",
+    "highlights": [
+      "Reporting dashboards on large financial datasets",
+      "Automated recurring reporting",
+      "Process-improvement analyses for O2C and P2P",
+      "Trained new team members"
+    ],
+    "tags": ["Process analytics", "Dashboards", "ERP", "SQL"],
+    "year": 2025,
+    "featured": false,
+    "repo": null,
+    "demo": null,
+    "accent": "#f28fad"
+  }
+]

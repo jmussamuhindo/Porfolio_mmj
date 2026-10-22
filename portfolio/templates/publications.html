@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Publications — {{ profile.name }}{% endblock %}
+
+{% block content %}
+<section class="section container page-head">
+  <p class="eyebrow mono">{{ articles | length }} items</p>
+  <h1>Publications</h1>
+  <p class="lead">Papers, talks and manuscripts in progress. Status tags show where each one stands.</p>
+</section>
+
+<section class="section container">
+  <div class="filter-bar">
+    <button class="filter-btn active" data-status="all">All</button>
+    {% set statuses = [] %}
+    {% for a in articles %}{% set s = (a.status or "in progress") | lower %}{% if s not in statuses %}{% set _ = statuses.append(s) %}{% endif %}{% endfor %}
+    {% for s in statuses %}
+      <button class="filter-btn" data-status="{{ s }}">{{ s }}</button>
+    {% endfor %}
+  </div>
+  <ul class="articles" id="article-list">
+    {% for a in articles %}
+      {% include "_article.html" %}
+    {% endfor %}
+  </ul>
+</section>
+{% endblock %}

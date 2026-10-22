@@ -1,0 +1,16 @@
+{# Reusable article row. Expects `a` in scope. #}
+{% set status = (a.status or "in progress") | lower %}
+<li class="article reveal">
+  <div class="article-meta">
+    <span class="mono">{{ a.year }}</span>
+    <span class="status status-{{ status | replace(' ', '-') }}">{{ status }}</span>
+  </div>
+  <div class="article-body">
+    <h3>
+      {% if a.link %}<a href="{{ a.link }}" target="_blank" rel="noopener">{{ a.title }}</a>{% else %}{{ a.title }}{% endif %}
+    </h3>
+    <p class="article-authors">{{ a.authors }}{% if a.type %} · <span class="article-type">{{ a.type }}</span>{% endif %}</p>
+    <p class="article-venue">{{ a.venue }}</p>
+    {% if a.abstract %}<p class="article-abstract">{{ a.abstract }}</p>{% endif %}
+  </div>
+</li>

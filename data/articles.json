@@ -1,0 +1,32 @@
+[
+  {
+    "title": "Forecasting malaria incidence in Rwanda with Neural Controlled Differential Equations and optimal control",
+    "authors": "M. J. Muhindo",
+    "venue": "XXXI National Conference on Applications of Mathematics in Biology and Medicine – International Edition, Kościelisko, Poland",
+    "year": 2026,
+    "type": "Conference talk",
+    "status": "presented",
+    "abstract": "Presents a continuous-time forecasting framework for district-level malaria incidence that handles irregularly sampled survey and surveillance data, coupled to an optimal-control layer for planning ITN, IRS and treatment interventions.",
+    "link": null
+  },
+  {
+    "title": "A calibrated SEIRS–SEI transmission model of malaria in Rwanda with optimal intervention scheduling",
+    "authors": "M. J. Muhindo, A. Nowakowski, D. Machowska",
+    "venue": "Target: journal of mathematical biology",
+    "year": 2026,
+    "type": "Journal article",
+    "status": "in progress",
+    "abstract": "Calibrates a human–mosquito compartmental model to 30-district data (national fit error 4.2 %) and derives optimal ITN, IRS and treatment schedules by direct transcription.",
+    "link": null
+  },
+  {
+    "title": "A reproducible district-level malaria dataset for Rwanda, 2000–2022",
+    "authors": "M. J. Muhindo",
+    "venue": "Target: data journal",
+    "year": 2026,
+    "type": "Data paper",
+    "status": "in progress",
+    "abstract": "Describes the pipeline combining Malaria Atlas Project surfaces, DHS/MIS surveys and public climate data into a 30-district, 23-year panel.",
+    "link": null
+  }
+]

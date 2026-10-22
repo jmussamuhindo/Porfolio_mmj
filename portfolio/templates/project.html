@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}{{ project.title }} — {{ profile.name }}{% endblock %}
+
+{% block content %}
+<article class="section container project-detail" style="--accent: {{ project.accent }}">
+  <a href="{{ url_for('main.projects') }}" class="back-link mono">← All projects</a>
+
+  <header class="page-head">
+    <p class="eyebrow mono">{{ project.year }}{% if project.featured %} · Featured{% endif %}</p>
+    <h1>{{ project.title }}</h1>
+    <p class="lead">{{ project.summary }}</p>
+    <ul class="tags">
+      {% for tag in project.tags %}<li>{{ tag }}</li>{% endfor %}
+    </ul>
+  </header>
+
+  <div class="project-body">
+    <div class="project-main">
+      <h2>Overview</h2>
+      <p>{{ project.description }}</p>
+
+      <h2>Highlights</h2>
+      <ul class="highlights">
+        {% for h in project.highlights %}<li>{{ h }}</li>{% endfor %}
+      </ul>
+    </div>
+
+    <aside class="project-side card">
+      <h4>Links</h4>
+      {% if project.repo %}
+        <a href="{{ project.repo }}" class="btn btn-primary btn-block" target="_blank" rel="noopener">View source</a>
+      {% endif %}
+      {% if project.demo %}
+        <a href="{{ project.demo }}" class="btn btn-block" target="_blank" rel="noopener">Live demo</a>
+      {% endif %}
+      {% if not project.repo and not project.demo %}
+        <p class="muted">No public links for this one.</p>
+      {% endif %}
+    </aside>
+  </div>
+</article>
+{% endblock %}

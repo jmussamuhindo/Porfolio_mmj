@@ -1,0 +1,13 @@
+{# Reusable project card. Usage: {% include '_project_card.html' %} with `project` in scope #}
+<a href="{{ url_for('main.project_detail', slug=project.slug) }}" class="card project-card reveal" style="--accent: {{ project.accent }}">
+  <div class="project-card-top">
+    <span class="project-year mono">{{ project.year }}</span>
+    {% if project.featured %}<span class="pill">Featured</span>{% endif %}
+  </div>
+  <h3>{{ project.title }}</h3>
+  <p>{{ project.summary }}</p>
+  <ul class="tags">
+    {% for tag in project.tags %}<li>{{ tag }}</li>{% endfor %}
+  </ul>
+  <span class="card-arrow" aria-hidden="true">→</span>
+</a>

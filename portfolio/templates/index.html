@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Hero -->
+<section class="hero container" id="top">
+  <p class="eyebrow mono">{{ profile.availability }}</p>
+  <h1>Hi, I'm <em>{{ profile.name }}</em>.<br>{{ profile.title }}.</h1>
+  <p class="lead">{{ profile.tagline }}</p>
+  <div class="hero-actions">
+    <a href="{{ url_for('main.projects') }}" class="btn btn-primary">See my work</a>
+    <a href="{{ url_for('main.contact') }}" class="btn">Get in touch</a>
+  </div>
+  <ul class="stats">
+    {% for s in profile.stats %}
+      <li><strong>{{ s.value }}</strong><span>{{ s.label }}</span></li>
+    {% endfor %}
+  </ul>
+</section>
+
+<!-- About -->
+<section class="section container" id="about">
+  <div class="section-head">
+    <span class="section-num mono">01</span>
+    <h2>About</h2>
+  </div>
+  <div class="about-grid">
+    <p class="about-text reveal">{{ profile.bio }}</p>
+    <div class="skills reveal">
+      {% for group in skills %}
+        <div class="skill-group">
+          <h4>{{ group.category }}</h4>
+          <ul class="tags">
+            {% for item in group["items"] %}<li>{{ item }}</li>{% endfor %}
+          </ul>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- Featured projects -->
+<section class="section container" id="projects">
+  <div class="section-head">
+    <span class="section-num mono">02</span>
+    <h2>Featured projects</h2>
+    <a href="{{ url_for('main.projects') }}" class="section-link">All projects →</a>
+  </div>
+  <div class="grid-3">
+    {% for project in projects %}
+      {% include "_project_card.html" %}
+    {% endfor %}
+  </div>
+</section>
+
+<!-- Publications -->
+<section class="section container" id="publications">
+  <div class="section-head">
+    <span class="section-num mono">03</span>
+    <h2>Publications &amp; work in progress</h2>
+    <a href="{{ url_for('main.publications') }}" class="section-link">All publications →</a>
+  </div>
+  <ul class="articles">
+    {% for a in articles %}
+      {% include "_article.html" %}
+    {% endfor %}
+  </ul>
+</section>
+
+<!-- Experience -->
+<section class="section container" id="experience">
+  <div class="section-head">
+    <span class="section-num mono">04</span>
+    <h2>Experience</h2>
+  </div>
+  <ol class="timeline">
+    {% for item in experience %}
+      <li class="reveal">
+        <span class="timeline-period mono">{{ item.period }}</span>
+        <div>
+          <h3>{{ item.role }}</h3>
+          <p class="timeline-org">{{ item.organisation }}</p>
+          {% if item.description %}<p>{{ item.description }}</p>{% endif %}
+        </div>
+      </li>
+    {% endfor %}
+  </ol>
+</section>
+
+<!-- CTA -->
+<section class="section container">
+  <div class="cta reveal">
+    <h2>Have a project in mind?</h2>
+    <p>I'm {{ profile.availability | lower }}. Let's talk.</p>
+    <a href="{{ url_for('main.contact') }}" class="btn btn-primary">Contact me</a>
+  </div>
+</section>
+{% endblock %}

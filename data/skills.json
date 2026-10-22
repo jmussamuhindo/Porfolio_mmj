@@ -1,0 +1,22 @@
+[
+  {
+    "category": "Programming",
+    "items": ["Python", "NumPy", "pandas", "SciPy", "scikit-learn", "PyTorch", "matplotlib", "R", "SQL", "LaTeX"]
+  },
+  {
+    "category": "Modelling",
+    "items": ["ODE / SEIR-type models", "Neural ODE / CDE", "Optimal control", "Time-series forecasting", "Bayesian calibration"]
+  },
+  {
+    "category": "Data & Geospatial",
+    "items": ["Survey-weighted analysis (DHS)", "Raster / vector processing", "Google Earth Engine", "Reproducible pipelines", "Git"]
+  },
+  {
+    "category": "Systems",
+    "items": ["Linux & Windows server admin", "Networking", "ERP / finance systems"]
+  },
+  {
+    "category": "Languages",
+    "items": ["English (C2)", "French (C2)", "Swahili (fluent)", "Kinyarwanda (native)", "Polish (A1)"]
+  }
+]

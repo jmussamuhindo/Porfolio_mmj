@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Projects — {{ profile.name }}{% endblock %}
+
+{% block content %}
+<section class="section container page-head">
+  <p class="eyebrow mono">{{ projects | length }} projects</p>
+  <h1>Projects</h1>
+  <p class="lead">Research and professional work, from doctoral modelling to data pipelines and analytics.</p>
+</section>
+
+<section class="section container">
+  <div class="filter-bar">
+    <button class="filter-btn active" data-tag="all">All</button>
+    {% set all_tags = [] %}
+    {% for p in projects %}{% for t in p.tags %}{% if t not in all_tags %}{% set _ = all_tags.append(t) %}{% endif %}{% endfor %}{% endfor %}
+    {% for tag in all_tags %}
+      <button class="filter-btn" data-tag="{{ tag }}">{{ tag }}</button>
+    {% endfor %}
+  </div>
+  <div class="grid-3" id="project-grid">
+    {% for project in projects %}
+      {% include "_project_card.html" %}
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}
