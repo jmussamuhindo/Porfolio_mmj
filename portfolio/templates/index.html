@@ -86,6 +86,53 @@
   </ol>
 </section>
 
+<!-- Education -->
+<section class="section container" id="education">
+  <div class="section-head">
+    <span class="section-num mono">05</span>
+    <h2>Education</h2>
+  </div>
+  <div class="grid-3 edu-grid">
+    {% for e in education %}
+      <div class="card edu-card reveal">
+        <span class="mono edu-period">{{ e.period }}</span>
+        <h3>{{ e.degree }}</h3>
+        <p class="edu-inst">{{ e.institution }}</p>
+        {% if e.location %}<p class="edu-loc mono">{{ e.location }}</p>{% endif %}
+        {% if e.description %}<p class="edu-desc">{{ e.description }}</p>{% endif %}
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+<!-- Testimonials -->
+{% if testimonials %}
+<section class="section container" id="testimonials">
+  <div class="section-head">
+    <span class="section-num mono">06</span>
+    <h2>What others say</h2>
+  </div>
+  <div class="testimonials">
+    {% for t in testimonials %}
+      <figure class="card testimonial reveal">
+        <blockquote>{{ t.quote }}</blockquote>
+        <figcaption>
+          {% if t.avatar %}
+            <img src="{{ url_for('static', filename='img/' ~ t.avatar) }}" alt="" class="avatar">
+          {% else %}
+            <span class="avatar avatar-initial">{{ t.name[0] }}</span>
+          {% endif %}
+          <div>
+            <strong>{{ t.name }}</strong>
+            <span>{{ t.role }}</span>
+          </div>
+        </figcaption>
+      </figure>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
 <!-- CTA -->
 <section class="section container">
   <div class="cta reveal">

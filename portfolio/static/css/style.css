@@ -269,6 +269,33 @@ em { font-style: italic; background: var(--gradient); -webkit-background-clip: t
 .status-submitted, .status-under-review { color: var(--warning); }
 .status-in-progress { color: var(--accent); }
 
+/* Education */
+.edu-card { display: flex; flex-direction: column; gap: 6px; }
+.edu-period { color: var(--accent); }
+.edu-card h3 { font-size: 1.15rem; margin: 4px 0 0; }
+.edu-inst { color: var(--text); font-size: 0.95rem; margin: 0; }
+.edu-loc { color: var(--text-muted); margin: 0; }
+.edu-desc { color: var(--text-muted); font-size: 0.9rem; margin: 8px 0 0; }
+
+/* Testimonials */
+.testimonials { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+.testimonial { margin: 0; display: flex; flex-direction: column; gap: 20px; position: relative; }
+.testimonial::before {
+  content: "\201C"; position: absolute; top: 8px; right: 22px;
+  font-family: var(--font-display); font-size: 5rem; line-height: 1;
+  background: var(--gradient); -webkit-background-clip: text; background-clip: text; color: transparent;
+  opacity: 0.35;
+}
+.testimonial blockquote { margin: 0; font-size: 1.05rem; line-height: 1.6; color: var(--text); padding-right: 40px; }
+.testimonial figcaption { display: flex; align-items: center; gap: 14px; }
+.testimonial figcaption strong { display: block; font-weight: 600; }
+.testimonial figcaption span { color: var(--text-muted); font-size: 0.85rem; }
+.avatar { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+.avatar-initial {
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--gradient); color: #fff; font-weight: 600; font-size: 1.1rem;
+}
+
 /* CTA */
 .cta {
   position: relative; overflow: hidden;
@@ -330,6 +357,7 @@ em { font-style: italic; background: var(--gradient); -webkit-background-clip: t
    ============================================================ */
 @media (max-width: 900px) {
   .grid-3 { grid-template-columns: repeat(2, 1fr); }
+  .testimonials { grid-template-columns: 1fr; }
   .about-grid, .project-body, .contact-grid { grid-template-columns: 1fr; gap: 32px; }
   .article { grid-template-columns: 1fr; gap: 12px; }
   .article-meta { flex-direction: row; align-items: center; }

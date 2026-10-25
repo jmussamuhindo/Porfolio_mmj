@@ -14,6 +14,8 @@ def index():
         projects=content.get_projects()[:3],
         skills=content.get_skills(),
         experience=content.get_experience(),
+        education=content.get_education(),
+        testimonials=content.get_testimonials(),
         articles=content.get_articles()[:3],
     )
 

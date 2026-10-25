@@ -24,7 +24,9 @@ portfolio/
 │   ├── projects.json      # Your projects
 │   ├── articles.json      # Publications & papers in progress (with status)
 │   ├── skills.json        # Skill groups
-│   └── experience.json    # Timeline (jobs, education)
+│   ├── experience.json    # Work timeline
+│   ├── education.json     # Degrees
+│   └── testimonials.json  # Quotes from supervisors / colleagues
 ├── portfolio/             # Flask package
 │   ├── __init__.py        # create_app() factory
 │   ├── config.py          # Settings
@@ -52,19 +54,39 @@ portfolio/
 - **Your info** – edit `data/profile.json`.
 - **Add a project** – add an object to `data/projects.json`. `slug` becomes the URL (`/projects/<slug>`); `accent` is the card's colour; `featured: true` shows it on the home page.
 - **Add an article** – add an object to `data/articles.json`. `status` can be `in progress`, `submitted`, `under review`, `accepted`, `presented` or `published` (it controls the colour of the tag). Set `link` to a DOI or PDF URL once it's public.
+- **Testimonials** – edit `data/testimonials.json`. Put a photo in `static/img/` and set `"avatar": "filename.jpg"`, or leave it `null` for an initial.
 - **Colours & fonts** – change the variables at the top of `static/css/style.css`.
 - **Contact form** – `routes.py` currently just prints submissions. Hook in Flask-Mail, a database, or a service like Formspree there.
 
-## Deploying for free on Render
+## Hosting for free
 
-1. Push this folder to a GitHub repository.
-2. Go to https://render.com, sign in with GitHub, click **New → Blueprint** and pick the repo. Render reads `render.yaml` and sets everything up (gunicorn, `FLASK_DEBUG=0`, a generated `SECRET_KEY`).
-3. Click **Apply**. The first build takes a couple of minutes; after that every `git push` redeploys automatically.
+### Option A — GitHub Pages (recommended: free, no card, never sleeps)
 
-Your site will be live at `https://portfolio-xxxx.onrender.com`. You can add a custom domain for free under the service's Settings → Custom Domains.
+The site has no database, so it can be published as plain HTML.
 
-Note: free Render services spin down after 15 minutes of no traffic and take ~1 minute to wake on the next visit.
+1. Create a GitHub repository named **`<your-username>.github.io`** (that exact name makes it serve at the root URL). Push this folder to it.
+2. In the repo, open **Settings → Pages** and set *Source* to **GitHub Actions**.
+3. That's it. The workflow in `.github/workflows/pages.yml` builds the site (`python build_static.py`) and publishes it on every push. Your site is at `https://<your-username>.github.io`.
 
-**Alternatives:** `Procfile` is included for Railway or any Heroku-style host. For PythonAnywhere (always-on free tier), upload the folder, create a Flask web app pointing at `app.py`, and set the WSGI file's `application = app`.
+**Custom domain (e.g. `yourname.com`):**
+1. Buy the domain (Cloudflare Registrar or Porkbun are cheapest, ~$11/year for .com, renewal at the same price).
+2. Write the domain into the `CNAME` file in this folder (one line, no `https://`, no `www`) and push.
+3. At your registrar add these DNS records:
+   - `A` records for `@` pointing to `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
+   - `CNAME` record for `www` pointing to `<your-username>.github.io`
+4. In GitHub **Settings → Pages** enter the domain under *Custom domain*, wait for the DNS check, then tick **Enforce HTTPS**.
+DNS can take from minutes to a few hours to propagate.
 
-Local development still runs with `FLASK_DEBUG=1 python app.py` (debug is off by default now).
+Contact form on a static site: sign up at https://formspree.io (free), create a form, and paste its endpoint into `"form_endpoint"` in `data/profile.json`. Leave it empty when running the Flask server locally.
+
+To preview the static build locally: `python build_static.py && python -m http.server -d dist 8000`.
+
+### Option B — PythonAnywhere (free, runs the Flask app)
+
+One free web app at `<username>.pythonanywhere.com`; you have to click "Run until" roughly monthly to keep it alive. Upload the folder, create a Flask web app, and point the WSGI file at `app.py` (`from app import app as application`).
+
+### Option C — Render / Railway (Flask app, Procfile and render.yaml included)
+
+`gunicorn app:app` is the start command. Render's free services sleep after 15 minutes idle.
+
+Local development runs with `FLASK_DEBUG=1 python app.py` (debug is off by default).

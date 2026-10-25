@@ -38,6 +38,14 @@ def get_experience() -> list[dict]:
     return _read("experience")
 
 
+def get_education() -> list[dict]:
+    return _read("education")
+
+
+def get_testimonials() -> list[dict]:
+    return _read("testimonials")
+
+
 # Order in which article statuses are listed (and their display colour key).
 ARTICLE_STATUS_ORDER = ["published", "accepted", "presented", "under review", "submitted", "in progress"]
 

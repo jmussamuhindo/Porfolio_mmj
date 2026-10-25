@@ -33,6 +33,7 @@
           <li><a href="{{ url_for('main.projects') }}" {% if request.endpoint in ('main.projects', 'main.project_detail') %}class="active"{% endif %}>Projects</a></li>
           <li><a href="{{ url_for('main.publications') }}" {% if request.endpoint == 'main.publications' %}class="active"{% endif %}>Publications</a></li>
           <li><a href="{{ url_for('main.index') }}#experience">Experience</a></li>
+          <li><a href="{{ url_for('main.index') }}#education">Education</a></li>
           <li><a href="{{ url_for('main.contact') }}" class="btn btn-small {% if request.endpoint == 'main.contact' %}active{% endif %}">Contact</a></li>
         </ul>
         <button class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
