@@ -9,7 +9,7 @@
 </section>
 
 <section class="section container contact-grid">
-  <form method="post" class="card contact-form reveal">
+  <form method="post" {% if profile.form_endpoint %}action="{{ profile.form_endpoint }}"{% endif %} class="card contact-form reveal">
     <label>
       <span>Name</span>
       <input type="text" name="name" required placeholder="Jane Doe">

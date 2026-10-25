@@ -14,5 +14,8 @@
     { "value": "7+", "label": "Years in IT & analytics" },
     { "value": "30", "label": "Districts modelled" },
     { "value": "5", "label": "Languages spoken" }
-  ]
+  ],
+  "form_endpoint": "https://formspree.io/f/xjyygzol"
 }
+
+https://formspree.io/f/xjyygzol
