@@ -25,8 +25,7 @@ portfolio/
 │   ├── articles.json      # Publications & papers in progress (with status)
 │   ├── skills.json        # Skill groups
 │   ├── experience.json    # Work timeline
-│   ├── education.json     # Degrees
-│   └── testimonials.json  # Quotes from supervisors / colleagues
+│   └── education.json     # Degrees
 ├── portfolio/             # Flask package
 │   ├── __init__.py        # create_app() factory
 │   ├── config.py          # Settings
@@ -54,7 +53,6 @@ portfolio/
 - **Your info** – edit `data/profile.json`.
 - **Add a project** – add an object to `data/projects.json`. `slug` becomes the URL (`/projects/<slug>`); `accent` is the card's colour; `featured: true` shows it on the home page.
 - **Add an article** – add an object to `data/articles.json`. `status` can be `in progress`, `submitted`, `under review`, `accepted`, `presented` or `published` (it controls the colour of the tag). Set `link` to a DOI or PDF URL once it's public.
-- **Testimonials** – edit `data/testimonials.json`. Put a photo in `static/img/` and set `"avatar": "filename.jpg"`, or leave it `null` for an initial.
 - **Colours & fonts** – change the variables at the top of `static/css/style.css`.
 - **Contact form** – `routes.py` currently just prints submissions. Hook in Flask-Mail, a database, or a service like Formspree there.
 
