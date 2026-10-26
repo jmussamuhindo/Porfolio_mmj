@@ -1,13 +1,13 @@
 [
   {
     "title": "Forecasting malaria incidence in Rwanda with Neural Controlled Differential Equations and optimal control",
-    "authors": "M. J. Muhindo",
-    "venue": "XXXI National Conference on Applications of Mathematics in Biology and Medicine – International Edition, Kościelisko, Poland",
+    "authors": "M. J. Muhindo, A. Nowakowski",
+    "venue": "XXXI National Conference on Applications of Mathematics in Biology and Medicine – International Edition (KKZMBM), Kościelisko, Poland, 15–19 Sept 2026 · Proceedings p. 21",
     "year": 2026,
     "type": "Conference talk",
     "status": "presented",
     "abstract": "Presents a continuous-time forecasting framework for district-level malaria incidence that handles irregularly sampled survey and surveillance data, coupled to an optimal-control layer for planning ITN, IRS and treatment interventions.",
-    "link": null
+    "link": "https://kkzmbm.mimuw.edu.pl/konferencje/kkzmbm_31.html"
   },
   {
     "title": "Malaria, Economic Activity, and Public Intervention in Rwanda: A Dynamic Game Approach",
