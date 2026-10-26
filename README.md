@@ -48,19 +48,13 @@ portfolio/
 └── tests/test_routes.py   # Run with: pytest
 ```
 
-## Editing content — the private admin panel
+## Editing content — the hidden admin page
 
-Start the site locally and open **http://127.0.0.1:8000/admin**:
+Open **https://mmj.ink/admin** (there is no link to it anywhere on the site). Sign in with a GitHub token and you can add, edit and delete publications (with links) and projects through forms. Clicking **Publish to site** commits the changes to this repository; GitHub rebuilds the site about a minute later.
 
-```bash
-PORT=8000 python app.py
-```
+**Create the token once:** github.com → Settings → Developer settings → Personal access tokens → Fine-grained tokens → Generate new token. Repository access: *Only select repositories* → this repo. Permissions: *Contents → Read and write*. Copy the token (it is shown only once) and keep it like a password. Tick "Stay signed in" on the admin page if you don't want to paste it every time.
 
-There you can add, edit and delete publications (with links) and projects through forms. Saving writes straight into the JSON files in `data/`. The panel only answers to your own machine and is never included in the published site. When you're happy:
-
-```bash
-git add -A && git commit -m "Update content" && git push
-```
+The same page also works locally at http://127.0.0.1:8000/admin when running `python app.py`.
 
 ## Customising
 

@@ -12,7 +12,7 @@ OUT = Path(__file__).parent / "dist"
 
 
 def main() -> None:
-    app = create_app(ADMIN_ENABLED=False)   # never publish the admin panel
+    app = create_app()
     app.config["STATIC_BUILD"] = True
 
     if OUT.exists():
@@ -26,6 +26,7 @@ def main() -> None:
             "publications/index.html": "/publications",
             "contact/index.html": "/contact",
             "404.html": "/this-page-does-not-exist",
+            "admin/index.html": "/admin",
         }
         for p in content.get_projects():
             pages[f"projects/{p['slug']}/index.html"] = f"/projects/{p['slug']}"

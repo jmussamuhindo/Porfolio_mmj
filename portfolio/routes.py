@@ -1,5 +1,5 @@
 """URL routes for the site."""
-from flask import Blueprint, abort, flash, redirect, render_template, request, url_for
+from flask import Blueprint, abort, current_app, flash, redirect, render_template, request, url_for
 
 from . import content
 
@@ -59,6 +59,14 @@ def contact():
             flash("Thanks! Your message has been sent.", "success")
             return redirect(url_for("main.contact"))
     return render_template("contact.html", profile=content.get_profile())
+
+
+@main_bp.route("/admin")
+@main_bp.route("/admin/")
+def admin():
+    """Hidden admin page. It saves edits as commits via the GitHub API, so it
+    works identically locally and on the published site."""
+    return current_app.send_static_file("admin.html")
 
 
 @main_bp.app_errorhandler(404)

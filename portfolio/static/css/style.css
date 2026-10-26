@@ -277,9 +277,8 @@ em { font-style: italic; background: var(--gradient); -webkit-background-clip: t
 .edu-loc { color: var(--text-muted); margin: 0; }
 .edu-desc { color: var(--text-muted); font-size: 0.9rem; margin: 8px 0 0; }
 
-/* Admin (local only) */
+/* Admin page */
 .section-link.btn-primary { color: var(--accent-contrast); }
-.admin-link { color: var(--accent) !important; font-family: var(--font-mono); font-size: 0.8rem; }
 .admin-table { width: 100%; border-collapse: collapse; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
 .admin-table th, .admin-table td { text-align: left; padding: 14px 16px; border-bottom: 1px solid var(--border); vertical-align: top; font-size: 0.95rem; }
 .admin-table th { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); background: var(--bg-elev); }

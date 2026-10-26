@@ -12,17 +12,10 @@ def create_app(config_class=Config, **overrides) -> Flask:
 
     app.register_blueprint(main_bp)
 
-    # Private admin panel: only when running locally, never in the static build.
-    admin_enabled = bool(app.config.get("ADMIN_ENABLED"))
-    if admin_enabled:
-        from .admin import admin_bp
-        app.register_blueprint(admin_bp)
-
     # Make the current year available in every template (footer).
     @app.context_processor
     def inject_globals():
         from datetime import date
-        return {"current_year": date.today().year,
-                "admin_enabled": admin_enabled}
+        return {"current_year": date.today().year}
 
     return app
