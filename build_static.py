@@ -1,4 +1,4 @@
-"""Render the whole site to static HTML in ./dist (for GitHub Pages).
+"""Render the whole site to static HTML in ./dist (for GitHub Pages, Netlify, etc.).
 
 Usage:  python build_static.py
 """
@@ -12,7 +12,8 @@ OUT = Path(__file__).parent / "dist"
 
 
 def main() -> None:
-    app = create_app()
+    app = create_app(ADMIN_ENABLED=False)   # never publish the admin panel
+    app.config["STATIC_BUILD"] = True
 
     if OUT.exists():
         shutil.rmtree(OUT)
@@ -40,8 +41,10 @@ def main() -> None:
         print(f"  {url:40s} -> {out_name}")
 
     shutil.copytree(Path(app.static_folder), OUT / "static")
-    (OUT / ".nojekyll").touch()
+    (OUT / ".nojekyll").touch()  # tell GitHub Pages not to run Jekyll
 
+    # Custom domain: put your domain (e.g. "mussamuhindo.com") in a file named
+    # CNAME next to this script and GitHub Pages will serve the site on it.
     cname = Path(__file__).parent / "CNAME"
     if cname.exists():
         shutil.copy(cname, OUT / "CNAME")

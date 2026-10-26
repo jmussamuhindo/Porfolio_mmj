@@ -48,6 +48,20 @@ portfolio/
 └── tests/test_routes.py   # Run with: pytest
 ```
 
+## Editing content — the private admin panel
+
+Start the site locally and open **http://127.0.0.1:8000/admin**:
+
+```bash
+PORT=8000 python app.py
+```
+
+There you can add, edit and delete publications (with links) and projects through forms. Saving writes straight into the JSON files in `data/`. The panel only answers to your own machine and is never included in the published site. When you're happy:
+
+```bash
+git add -A && git commit -m "Update content" && git push
+```
+
 ## Customising
 
 - **Your info** – edit `data/profile.json`.

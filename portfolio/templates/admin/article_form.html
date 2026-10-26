@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}{{ 'Edit' if idx is not none else 'New' }} article — Admin{% endblock %}
+
+{% block content %}
+<section class="section container page-head">
+  <a href="{{ url_for('admin.index') }}" class="back-link mono">← Admin</a>
+  <h1>{{ 'Edit article' if idx is not none else 'New article' }}</h1>
+</section>
+
+<section class="section container">
+  <form method="post" class="card contact-form admin-form">
+    <label><span>Title *</span><input name="title" required value="{{ article.title or '' }}"></label>
+    <label><span>Authors</span><input name="authors" value="{{ article.authors or '' }}" placeholder="M. J. Muhindo, A. Nowakowski"></label>
+    <label><span>Venue / journal / conference</span><input name="venue" value="{{ article.venue or '' }}"></label>
+    <div class="form-row">
+      <label><span>Year</span><input name="year" type="number" value="{{ article.year or 2026 }}"></label>
+      <label><span>Type</span>
+        <select name="type">
+          {% for t in types %}<option {% if article.type == t %}selected{% endif %}>{{ t }}</option>{% endfor %}
+        </select>
+      </label>
+      <label><span>Status</span>
+        <select name="status">
+          {% for s in statuses %}<option {% if (article.status or 'in progress') == s %}selected{% endif %}>{{ s }}</option>{% endfor %}
+        </select>
+      </label>
+    </div>
+    <label><span>Link (DOI, PDF, conference page) — leave empty if none yet</span><input name="link" type="url" value="{{ article.link or '' }}" placeholder="https://"></label>
+    <label><span>Abstract / one-paragraph summary</span><textarea name="abstract" rows="5">{{ article.abstract or '' }}</textarea></label>
+    <div class="form-actions">
+      <button type="submit" class="btn btn-primary">Save</button>
+      <a href="{{ url_for('admin.index') }}" class="btn">Cancel</a>
+    </div>
+  </form>
+</section>
+{% endblock %}

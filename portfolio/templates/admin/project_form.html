@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}{{ 'Edit' if idx is not none else 'New' }} project — Admin{% endblock %}
+
+{% block content %}
+<section class="section container page-head">
+  <a href="{{ url_for('admin.index') }}" class="back-link mono">← Admin</a>
+  <h1>{{ 'Edit project' if idx is not none else 'New project' }}</h1>
+</section>
+
+<section class="section container">
+  <form method="post" class="card contact-form admin-form">
+    <label><span>Title *</span><input name="title" required value="{{ project.title or '' }}"></label>
+    <label><span>URL slug (leave empty to generate from title)</span><input name="slug" value="{{ project.slug or '' }}" placeholder="my-project"></label>
+    <label><span>Short summary (shown on the card)</span><input name="summary" value="{{ project.summary or '' }}"></label>
+    <label><span>Full description (shown on the project page)</span><textarea name="description" rows="5">{{ project.description or '' }}</textarea></label>
+    <label><span>Highlights — one per line</span><textarea name="highlights" rows="4">{{ (project.highlights or []) | join('\n') }}</textarea></label>
+    <label><span>Tags — comma separated</span><input name="tags" value="{{ (project.tags or []) | join(', ') }}" placeholder="Python, PyTorch, Epidemiology"></label>
+    <div class="form-row">
+      <label><span>Year</span><input name="year" type="number" value="{{ project.year or 2026 }}"></label>
+      <label><span>Accent colour</span><input name="accent" type="color" value="{{ project.accent or '#6d4aff' }}"></label>
+      <label class="check"><input type="checkbox" name="featured" {% if project.featured %}checked{% endif %}> <span>Featured on home page</span></label>
+    </div>
+    <label><span>Code repository link</span><input name="repo" type="url" value="{{ project.repo or '' }}" placeholder="https://github.com/…"></label>
+    <label><span>Live demo / paper link</span><input name="demo" type="url" value="{{ project.demo or '' }}" placeholder="https://"></label>
+    <div class="form-actions">
+      <button type="submit" class="btn btn-primary">Save</button>
+      <a href="{{ url_for('admin.index') }}" class="btn">Cancel</a>
+    </div>
+  </form>
+</section>
+{% endblock %}

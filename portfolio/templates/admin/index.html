@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% block title %}Admin — {{ profile.name }}{% endblock %}
+
+{% block content %}
+<section class="section container page-head">
+  <p class="eyebrow mono">private · local only</p>
+  <h1>Admin</h1>
+  <p class="lead">Edit your content here. Changes are saved to the JSON files in <code>data/</code>. To publish, run <code>git add -A && git commit -m "update" && git push</code>.</p>
+</section>
+
+<section class="section container">
+  <div class="section-head">
+    <h2>Publications</h2>
+    <a href="{{ url_for('admin.article_new') }}" class="btn btn-primary btn-small section-link">+ Add article</a>
+  </div>
+  <table class="admin-table">
+    <thead><tr><th>Year</th><th>Title</th><th>Status</th><th>Link</th><th></th></tr></thead>
+    <tbody>
+      {% for a in articles %}
+      <tr>
+        <td class="mono">{{ a.year }}</td>
+        <td>{{ a.title }}<br><small class="muted">{{ a.authors }}</small></td>
+        <td><span class="status status-{{ (a.status or 'in progress') | replace(' ', '-') }}">{{ a.status }}</span></td>
+        <td>{% if a.link %}<a href="{{ a.link }}" target="_blank" rel="noopener">↗</a>{% else %}<span class="muted">—</span>{% endif %}</td>
+        <td class="admin-actions">
+          <a href="{{ url_for('admin.article_edit', idx=loop.index0) }}" class="btn btn-small">Edit</a>
+          <form method="post" action="{{ url_for('admin.article_delete', idx=loop.index0) }}" onsubmit="return confirm('Delete this article?')">
+            <button class="btn btn-small btn-danger">Delete</button>
+          </form>
+        </td>
+      </tr>
+      {% else %}
+      <tr><td colspan="5" class="muted">No articles yet.</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</section>
+
+<section class="section container">
+  <div class="section-head">
+    <h2>Projects</h2>
+    <a href="{{ url_for('admin.project_new') }}" class="btn btn-primary btn-small section-link">+ Add project</a>
+  </div>
+  <table class="admin-table">
+    <thead><tr><th>Year</th><th>Title</th><th>Featured</th><th>Links</th><th></th></tr></thead>
+    <tbody>
+      {% for p in projects %}
+      <tr>
+        <td class="mono">{{ p.year }}</td>
+        <td>{{ p.title }}<br><small class="muted">/projects/{{ p.slug }}</small></td>
+        <td>{% if p.featured %}<span class="pill">Featured</span>{% else %}<span class="muted">—</span>{% endif %}</td>
+        <td>
+          {% if p.repo %}<a href="{{ p.repo }}" target="_blank" rel="noopener">code</a>{% endif %}
+          {% if p.demo %}<a href="{{ p.demo }}" target="_blank" rel="noopener">demo</a>{% endif %}
+          {% if not p.repo and not p.demo %}<span class="muted">—</span>{% endif %}
+        </td>
+        <td class="admin-actions">
+          <a href="{{ url_for('admin.project_edit', idx=loop.index0) }}" class="btn btn-small">Edit</a>
+          <form method="post" action="{{ url_for('admin.project_delete', idx=loop.index0) }}" onsubmit="return confirm('Delete this project?')">
+            <button class="btn btn-small btn-danger">Delete</button>
+          </form>
+        </td>
+      </tr>
+      {% else %}
+      <tr><td colspan="5" class="muted">No projects yet.</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</section>
+{% endblock %}

@@ -277,6 +277,27 @@ em { font-style: italic; background: var(--gradient); -webkit-background-clip: t
 .edu-loc { color: var(--text-muted); margin: 0; }
 .edu-desc { color: var(--text-muted); font-size: 0.9rem; margin: 8px 0 0; }
 
+/* Admin (local only) */
+.section-link.btn-primary { color: var(--accent-contrast); }
+.admin-link { color: var(--accent) !important; font-family: var(--font-mono); font-size: 0.8rem; }
+.admin-table { width: 100%; border-collapse: collapse; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+.admin-table th, .admin-table td { text-align: left; padding: 14px 16px; border-bottom: 1px solid var(--border); vertical-align: top; font-size: 0.95rem; }
+.admin-table th { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); background: var(--bg-elev); }
+.admin-table tr:last-child td { border-bottom: 0; }
+.admin-actions { white-space: nowrap; }
+.admin-actions > * { display: inline-block; vertical-align: middle; margin-right: 6px; }
+.admin-actions form { display: inline; }
+.btn-danger { color: var(--error); border-color: var(--error); background: transparent; }
+.btn-danger:hover { background: var(--error); color: #fff; }
+.admin-form { max-width: 760px; }
+.admin-form select { width: 100%; padding: 12px 14px; border-radius: 10px; background: var(--bg-elev); border: 1px solid var(--border); color: var(--text); font: inherit; }
+.admin-form input[type="color"] { height: 46px; padding: 4px; }
+.form-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.form-row label.check { display: flex; align-items: center; gap: 10px; align-self: end; padding-bottom: 14px; }
+.form-row label.check input { width: auto; }
+.form-actions { display: flex; gap: 12px; margin-top: 8px; }
+@media (max-width: 640px) { .form-row { grid-template-columns: 1fr; } }
+
 /* CTA */
 .cta {
   position: relative; overflow: hidden;
